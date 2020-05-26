@@ -80,12 +80,12 @@ void xbee_rx(void)
     }
   }            ////////////////////////////////////////////////////////////
   wait(0.001); ///////////// somehow this wait time will affect ///////////
-  //wait(0.1); ////////////////////////////////////////////////////////////
+  //wait(0.1); /////////////////////// 0.1 is too long ////////////////////
   xbee.attach(xbee_rx_interrupt, Serial::RxIrq); // reattach interrupt
 }
 
 void reply_messange(char *xbee_reply, char *messange){
-  xbee_reply[0] = xbee.getc();
+  xbee_reply[0] = xbee.getc(); // carriage return
   xbee_reply[1] = xbee.getc();
   xbee_reply[2] = xbee.getc();
   if(xbee_reply[1] == 'O' && xbee_reply[2] == 'K'){
@@ -97,7 +97,7 @@ void reply_messange(char *xbee_reply, char *messange){
 }
 
 void check_addr(char *xbee_reply, char *messenger){
-  xbee_reply[0] = xbee.getc();
+  xbee_reply[0] = xbee.getc(); // carriage return
   xbee_reply[1] = xbee.getc();
   xbee_reply[2] = xbee.getc();
   xbee_reply[3] = xbee.getc();

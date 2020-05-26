@@ -43,13 +43,15 @@ char = s.read(4)
 print("DL : ")
 print(char.decode())
 
-s.write("ATCN\r\n".encode())
+s.write("ATCN\r".encode())
+#s.write("abcd\r".encode())  ////// \n will cause re-read error //////
 char = s.read(3)
 print("Exit AT mode.")
 print(char.decode())
 
 # send to remote
-s.write("abcd\r\n".encode())
+s.write("abcd\r".encode())
+#s.write("abcd\r\n".encode())  ////// \n will cause re-read error //////
 line = s.read(5)
 print('Get:', line.decode())
 
