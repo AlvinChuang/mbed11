@@ -68,14 +68,17 @@ int main(){
     xbee_reply[0] = '\0';
     xbee_reply[1] = '\0';
   }
-  xbee.printf("ATMY 0x227\r\n");
-  reply_messange(xbee_reply, "setting MY : 0x227");
+  xbee.printf("ATRE\r\n");
+  reply_messange(xbee_reply, "reset the XBee");
 
-  xbee.printf("ATDL 0x127\r\n");
-  reply_messange(xbee_reply, "setting DL : 0x127");
+  xbee.printf("ATMY 0x427\r\n");
+  reply_messange(xbee_reply, "setting MY : 0x427");
 
-  xbee.printf("ATID 0x1\r\n");
-  reply_messange(xbee_reply, "setting PAN ID : 0x1");
+  xbee.printf("ATDL 0x327\r\n");
+  reply_messange(xbee_reply, "setting DL : 0x327");
+
+  xbee.printf("ATID 0x2\r\n");
+  reply_messange(xbee_reply, "setting PAN ID : 0x2");
 
   xbee.printf("ATWR\r\n");
   reply_messange(xbee_reply, "write config");
